@@ -1,0 +1,869 @@
+[
+  {
+    "scenario_id": 6,
+    "title": "B2B Logistics Software Pivot",
+    "difficulty_tier": 2,
+    "scenario_type": "Multi-Stage Segmentation",
+    "background": "RouteMaster is a logistics optimization SaaS for regional delivery companies. For 3 years, they targeted all delivery firms with 10\u201350 trucks, using a flat pricing model. Churn is 30% annually, with complaints that the software is either 'too complex' or 'lacks features' depending on the customer.",
+    "trigger_event": "A detailed customer churn analysis reveals two very different segments: 'Simple Routers' (need basic route planning, low tech skills) and 'Complex Optimizers' (need real-time tracking, API integration, multi-depot support). The current product does neither well.",
+    "steps": {
+      "segmentation": {
+        "question": "RouteMaster must decide whether to pursue a multi-segment strategy or focus on one. Which segmentation base would best diagnose the underlying mismatch between product features and customer needs?",
+        "options": [
+          "Firmographic (fleet size, revenue, years in business)",
+          "Needs-based (operational complexity, integration requirements)",
+          "Geographic (urban vs rural delivery routes)"
+        ],
+        "correct_idx": 1,
+        "rubric_rationale": "Needs-based segmentation is correct because the complaint pattern ('too complex' vs 'lacks features') indicates different operational needs, not just company size or location. Addressing needs reveals product-market fit gaps."
+      },
+      "targeting": {
+        "question": "RouteMaster has development resources to fully satisfy only one segment within 6 months. Which target offers the highest long-term CLV and defensible differentiation against emerging low-end competitors?",
+        "options": [
+          "'Simple Routers' \u2013 large volume, but vulnerable to simpler, cheaper tools (e.g., Excel add-ons)",
+          "'Complex Optimizers' \u2013 smaller volume but high switching costs, API needs, willingness to pay premium"
+        ],
+        "correct_idx": 1,
+        "rubric_rationale": "Complex Optimizers are the better target because high switching costs and premium pricing create a defensible moat. Simple Routers are easily poached by low-end entrants. This is classic 'choose the profitable niche'."
+      },
+      "positioning": {
+        "question": "Select the positioning statement that best communicates RouteMaster's new focus to the Complex Optimizer segment, while acknowledging the competitor landscape (e.g., TitanLogix, OmniChain).",
+        "options": [
+          "RouteMaster: Simplifying logistics for everyone.",
+          "RouteMaster: Enterprise-grade multi-depot optimization, built for regional fleets.",
+          "RouteMaster: The cheapest route planning tool on the market."
+        ],
+        "correct_idx": 1,
+        "rubric_rationale": "Option 2 directly addresses the segment's needs (multi-depot, enterprise-grade) and carves a unique space between low-end tools and overly expensive giants. Option 1 is generic; Option 3 misaligns with premium needs."
+      }
+    },
+    "concept_check": {
+      "question": "When a product fails two different customer needs groups simultaneously, the recommended STP response is:",
+      "options": [
+        "Build one product for both groups",
+        "Choose one segment and deeply satisfy them, or create two separate offerings",
+        "Lower price for both groups",
+        "Ignore the complaints and focus on acquisition"
+      ],
+      "correct_idx": 1,
+      "rationale": "Trying to be everything to everyone leads to mediocre fit. The textbook response is to prioritize one segment (concentrated targeting) or develop distinct offerings for each (differentiated targeting)."
+    },
+    "situation_analysis": {
+      "company": {
+        "summary": "RouteMaster is a B2B SaaS company offering logistics optimization software to regional delivery companies with 10-50 trucks. After three years, the company faces 30% annual churn with a flat pricing model that serves neither of two distinct customer types well. The product sits in an unhappy middle: too complex for simple users, too limited for sophisticated ones.",
+        "strengths": [
+          "Established presence in the regional logistics software market with three years of operating history",
+          "Existing customer base provides data and feedback for product refinement",
+          "Domain expertise in logistics optimization is valuable and not easily replicated by generalist software companies",
+          "Recurring SaaS revenue model provides some predictability despite churn"
+        ],
+        "weaknesses": [
+          "30% annual churn is unsustainable and indicates severe product-market fit failure",
+          "Flat pricing and one-size-fits-all product serve neither segment well, creating dissatisfaction on both ends",
+          "Limited development resources prevent serving both 'Simple Routers' and 'Complex Optimizers' simultaneously",
+          "No clear competitive differentiation -- the product is neither the simplest nor the most powerful option"
+        ]
+      },
+      "competitors": {
+        "summary": "The logistics software market has a barbell structure. At the low end, simple tools (Excel-based systems, basic GPS routing apps) serve companies with minimal complexity needs. At the high end, enterprise platforms (TitanLogix, OmniChain) offer comprehensive solutions with multi-depot, API integration, and real-time tracking -- but at enterprise price points and complexity. The middle ground is surprisingly sparse, but RouteMaster's current product straddles it poorly.",
+        "direct": [
+          "TitanLogix -- enterprise-grade logistics platform; multi-depot, API integration, real-time tracking; expensive and complex; trusted by large fleets",
+          "OmniChain -- supply chain and logistics suite; broader than route optimization but includes it; competes on being an integrated platform"
+        ],
+        "indirect": [
+          "Excel spreadsheets and mapping services -- the 'do it manually' option for simple routing needs; zero cost, simple, but not scalable",
+          "Basic GPS routing tools -- freemium or low-cost, targeted at small fleets and independent drivers",
+          "Building an in-house solution -- larger companies sometimes develop proprietary routing software, competing with 'buy' decisions"
+        ]
+      },
+      "customers": {
+        "summary": "Churn analysis reveals RouteMaster's 10-50 truck customer base is not one homogeneous group but two distinct needs-based segments. Simple Routers need basic route planning with low technical complexity. Complex Optimizers need real-time tracking, API integration, and multi-depot support. The current product dissatisfies both: it is overwhelming for Simple Routers and underpowered for Complex Optimizers.",
+        "segments_observed": [
+          "Simple Routers -- small delivery operations; need basic route planning and driver assignment; low technical skills; price-sensitive; currently using the product reluctantly because it's 'too complex'; vulnerable to simpler alternatives",
+          "Complex Optimizers -- sophisticated logistics operations; need real-time tracking, API integration with other systems, multi-depot coordination; willing to pay premium for advanced features; frustrated because the product 'lacks features'"
+        ],
+        "key_insight": "The churn pattern is a classic symptom of trying to serve two segments with incompatible needs using one product. Simple Routers leave because the product is too complex; Complex Optimizers leave because it is not complex enough. The flat pricing model compounds the problem by overcharging Simple Routers (who get more than they need) and undercharging Complex Optimizers (who would pay more for more)."
+      },
+      "collaborators": {
+        "suppliers": [
+          "Cloud infrastructure providers for hosting the SaaS platform -- reliability directly impacts customer satisfaction",
+          "Mapping and traffic data API providers -- essential for route optimization accuracy",
+          "Integration partners whose APIs RouteMaster connects to (ERP systems, telematics providers, fuel card systems)"
+        ],
+        "channels": [
+          "Direct sales to regional delivery companies through a small sales team -- high-touch for B2B SaaS",
+          "No self-serve or product-led growth motion that could efficiently acquire smaller Simple Routers",
+          "No partnerships with industry associations, trucking groups, or logistics consultants that could serve as referral channels"
+        ]
+      },
+      "climate": {
+        "trends": [
+          "E-commerce growth is increasing delivery volumes and route complexity for regional carriers",
+          "Real-time visibility and tracking are becoming table stakes in logistics, driven by consumer expectations from e-commerce giants and major logistics providers",
+          "SaaS specialization trend: vertical-specific, deeply tailored software is winning over generalist horizontal platforms",
+          "API-first architecture is becoming standard, enabling logistics software to integrate into broader supply chain ecosystems"
+        ],
+        "threats": [
+          "Low-end disruption from increasingly capable freemium/inexpensive tools, threatening the Simple Router segment",
+          "Enterprise platforms moving downmarket with 'lite' versions, threatening the Complex Optimizer segment",
+          "Driver shortage increasing pressure on logistics companies to optimize, which raises the stakes for routing software performance",
+          "Rapid technology change (AI-based routing, autonomous delivery) could obsolete current-generation optimization algorithms"
+        ]
+      },
+      "analysis_prompt": "RouteMaster's churn crisis stems from trying to serve two incompatible customer need profiles with one product. Using the 5C framework, evaluate (a) which segment offers the most defensible long-term position given competitive dynamics, and (b) what specific product and pricing changes would be required to serve that segment well."
+    },
+    "analysis_questions": {
+      "company": {
+        "question": "RouteMaster's flat pricing and one-size-fits-all product has created dissatisfaction among both Simple Routers and Complex Optimizers. In STP terms, this failure most directly reflects which flawed assumption?",
+        "options": [
+          "Assuming all 10-50 truck companies have identical needs and willingness to pay, when in fact they have heterogeneous operational complexity and value different product attributes",
+          "Assuming the product is priced too high for everyone",
+          "Assuming competitors don't exist in the logistics software market",
+          "Assuming every customer wants the cheapest possible software"
+        ],
+        "correct_idx": 0,
+        "rationale": "The churn data (some leaving because 'too complex,' others because 'lacks features') directly contradicts the assumption of customer homogeneity. This is the fundamental STP insight: markets are heterogeneous, and one product at one price cannot optimally serve segments with different needs. The correct response is either choose one segment or create distinct offerings for each (differentiated targeting)."
+      },
+      "competitors": {
+        "question": "Low-end disruptors (Excel, basic GPS apps) threaten the Simple Router segment, while enterprise players (TitanLogix, OmniChain) dominate the high end. Which competitive insight should most influence RouteMaster's segment choice?",
+        "options": [
+          "RouteMaster should compete at the low end by being cheaper than Excel",
+          "The Complex Optimizer segment is more defensible: enterprise competitors are expensive and complex to implement, creating room for a 'enterprise-grade but accessible' option. Simple Routers face a race to the bottom against free/low-cost alternatives",
+          "Both segments are equally defensible and RouteMaster should serve both",
+          "RouteMaster should exit logistics and enter a new industry entirely"
+        ],
+        "correct_idx": 1,
+        "rationale": "Industry analysis distinguishes between segments based on the intensity of competitive rivalry and barriers to entry. The Simple Router segment faces commoditization pressure from free/cheap alternatives. The Complex Optimizer segment has higher barriers (technical complexity, integration requirements, switching costs) that protect margins. This makes it a structurally more attractive segment despite being smaller in volume."
+      },
+      "customers": {
+        "question": "Complex Optimizers represent a smaller volume than Simple Routers but likely higher CLV. Which customer characteristic most directly drives this higher lifetime value?",
+        "options": [
+          "Complex Optimizers are friendlier and easier to deal with",
+          "High switching costs from API integrations, multi-depot configuration, and staff training create strong retention; willingness to pay for advanced features enables premium pricing; and growing operational complexity drives expansion revenue as their needs increase",
+          "Complex Optimizers never go out of business",
+          "Complex Optimizers don't use software at all"
+        ],
+        "correct_idx": 1,
+        "rationale": "In B2B SaaS, CLV is driven by revenue per account, retention rate, and expansion potential. Complex Optimizers score well on all three: premium pricing for advanced features, high switching costs that reduce churn, and growing data/complexity that creates natural upselling opportunities. Simple Routers have lower switching costs and willingness to pay, making their CLV structurally lower."
+      },
+      "collaborators": {
+        "question": "If RouteMaster chooses Complex Optimizers as its target, which collaborator strategy would most effectively deepen the switching costs that protect against churn?",
+        "options": [
+          "Keep the product isolated from all other systems to maintain control",
+          "Build deep API integrations with ERP systems, telematics providers, and fuel card systems -- making RouteMaster the connective tissue of the customer's logistics tech stack and extremely costly to rip out",
+          "Outsource all development to the cheapest overseas vendor",
+          "Remove all integration capabilities to simplify the product"
+        ],
+        "correct_idx": 1,
+        "rationale": "In B2B software, integration depth = switching cost. When RouteMaster's APIs connect to a customer's ERP, telematics, and financial systems, replacing RouteMaster means re-engineering all those integrations. This creates a defensible moat that low-end competitors cannot easily replicate because they lack the integration ecosystem. For Complex Optimizers, this is a key part of the value proposition."
+      },
+      "climate": {
+        "question": "The trend toward API-first architecture and real-time visibility most strongly supports targeting which of RouteMaster's two customer segments?",
+        "options": [
+          "Simple Routers, because they love complex APIs",
+          "Complex Optimizers, because real-time tracking, API integration, and multi-depot coordination are precisely the capabilities that this segment values and that market trends are making essential -- creating a growing market for the exact feature set RouteMaster would build for them",
+          "Neither segment is affected by technology trends",
+          "Climate trends are irrelevant to software strategy"
+        ],
+        "correct_idx": 1,
+        "rationale": "Market trends act as tailwinds or headwinds for different segments. The demand for real-time visibility, API integration, and sophisticated optimization is growing due to e-commerce and consumer expectations. This expands the addressable market for Complex Optimizer-focused products. The Simple Router need (basic route planning) is being increasingly well-served by free/cheap tools, creating a headwind for that segment."
+      }
+    }
+  },
+  {
+    "scenario_id": 7,
+    "title": "Luxury Hotel Chain Repositioning",
+    "difficulty_tier": 2,
+    "scenario_type": "Psychographic Targeting",
+    "background": "Opal Resorts is a 12-property luxury chain known for opulent decor, fine dining, and butler service. Their core customer has traditionally been affluent older couples (55+) seeking indulgence. However, occupancy has declined 15% as younger affluent travelers (30\u201345) prefer 'experiential luxury' \u2013 boutique hotels with local culture, wellness, and authenticity.",
+    "trigger_event": "A new competitor, 'Zephyr Stays' \u2013 a lifestyle hotel brand focused on wellness, local art, and flexible co-working spaces \u2013 has opened three locations in Opal's key markets, consistently achieving higher RevPAR (revenue per available room).",
+    "steps": {
+      "segmentation": {
+        "question": "Which segmentation approach will best help Opal understand the motivational differences between their traditional customers and the emerging younger affluent segment?",
+        "options": [
+          "Demographic (age and income only)",
+          "Psychographic (values: status & tradition vs novelty & authenticity)",
+          "Geographic (urban vs resort locations)"
+        ],
+        "correct_idx": 1,
+        "rubric_rationale": "Psychographic segmentation captures the underlying values and lifestyle orientations (status vs authenticity) that drive hotel choice among similarly high-income groups. Demographics alone would miss these differences."
+      },
+      "targeting": {
+        "question": "Opal cannot fully abandon its traditional older segment (still profitable) but needs to attract younger travelers. Which targeting strategy is most appropriate?",
+        "options": [
+          "Concentrated targeting (focus only on younger travelers)",
+          "Differentiated targeting (serve both segments with tailored positioning and possibly separate wings or services)",
+          "Undifferentiated targeting (one generic luxury message for all)"
+        ],
+        "correct_idx": 1,
+        "rubric_rationale": "Differentiated targeting is correct because the two segments have distinct psychographic profiles but both can be profitable. Opal can maintain traditional offerings while adding experiential/wellness amenities for younger guests (e.g., separate floors, pop-up local art galleries)."
+      },
+      "positioning": {
+        "question": "For the new 'Experiential Luxury' target segment, which positioning statement best differentiates Opal from Zephyr while leveraging Opal's existing assets (prime locations, service reputation)?",
+        "options": [
+          "Opal Resorts: Where tradition meets tomorrow \u2013 timeless luxury, now with a local soul.",
+          "Opal Resorts: Younger, hipper, and cheaper than before.",
+          "Opal Resorts: Still the most opulent address in the city."
+        ],
+        "correct_idx": 0,
+        "rubric_rationale": "Option 0 bridges the old and new, acknowledging Opal's heritage while adding local/authentic elements. Option 2 cheapens the brand. Option 3 ignores the new segment entirely and fails to counter Zephyr."
+      }
+    },
+    "concept_check": {
+      "question": "When a brand attempts to serve two different psychographic segments with one physical property, the risk is:",
+      "options": [
+        "Cannibalization only",
+        "Brand dilution or confusing identity",
+        "Lower operational costs",
+        "Automatic segmentation success"
+      ],
+      "correct_idx": 1,
+      "rationale": "The major risk is brand dilution \u2013 traditional customers may feel alienated by changes, while new customers may see the brand as inauthentic. Careful physical or service separation (e.g., zones, different marketing) can mitigate this."
+    },
+    "situation_analysis": {
+      "company": {
+        "summary": "Opal Resorts is a 12-property luxury hotel chain known for opulent decor, fine dining, and butler service. Its traditional customer base of affluent older couples (55+) values status, tradition, and pampered indulgence. The brand has significant assets -- prime locations, a reputation for service excellence, and operational expertise in luxury hospitality -- but these are associated with a style of luxury that is declining in relevance.",
+        "strengths": [
+          "Twelve prime-location properties in key markets -- hard-to-replicate real estate assets",
+          "Deep reputation for service excellence (butler service, fine dining) and consistent quality",
+          "Loyal older customer base provides stable baseline revenue, even if declining",
+          "Operational expertise in high-touch hospitality that boutique competitors cannot easily replicate"
+        ],
+        "weaknesses": [
+          "Brand image associated with 'old luxury' (opulence, formality) that younger affluent travelers perceive as stuffy or inauthentic",
+          "Occupancy declining 15% as preferences shift toward experiential luxury",
+          "Physical properties designed for traditional luxury may require significant renovation to serve new segments",
+          "No brand identity or operational experience in wellness, local culture, or co-working -- key attributes of experiential luxury"
+        ]
+      },
+      "competitors": {
+        "summary": "Zephyr Stays has entered Opal's key markets with a lifestyle hotel concept focused on wellness, local art, and flexible co-working spaces. Zephyr achieves higher RevPAR by targeting younger affluent travelers (30-45) who seek experiences over opulence. Traditional luxury competitors are also adding experiential elements, creating competitive pressure from multiple directions.",
+        "direct": [
+          "Zephyr Stays -- lifestyle hotel brand; wellness, local art, co-working; higher RevPAR; directly targeting the younger affluent segment Opal wants to capture",
+          "Traditional luxury chains -- traditional luxury chains that are also evolving toward experiential offerings; Opal's direct peers in the legacy luxury tier"
+        ],
+        "indirect": [
+          "Boutique hotels -- independently owned, unique character, hyper-local; appeal to experiential travelers seeking authenticity",
+          "Luxury vacation rentals -- offer privacy, local immersion, and unique properties without hotel formality",
+          "High-end wellness retreats -- compete for the wellness-oriented travel dollar that might otherwise go to Opal"
+        ]
+      },
+      "customers": {
+        "summary": "Opal faces two distinct psychographic segments. Traditional Luxury seekers (55+, affluent) value status, formality, fine dining, and the hotel as a destination in itself. Experiential Luxury seekers (30-45, affluent) value authenticity, local culture, wellness, and the hotel as a base for exploring the destination. Both segments are high-spending, but their psychographic profiles -- what makes them feel 'luxurious' -- are fundamentally different.",
+        "segments_observed": [
+          "Traditional Luxury seekers -- 55+; value opulence, status symbols, formal service, fine dining, hotel as destination; declining in size as demographic ages",
+          "Experiential Luxury seekers -- 30-45; value authenticity, local immersion, wellness, sustainability, co-working/connectivity; growing segment that will define the luxury market for decades"
+        ],
+        "key_insight": "The two segments' definitions of luxury are in tension. Traditional luxury says 'more is more' (marble, chandeliers, formality). Experiential luxury says 'authenticity is more' (local art, farm-to-table, meaningful experiences). A single hotel cannot simultaneously feel opulent-and-formal AND authentic-and-local without confusing both segments. This is the core psychographic conflict Opal must navigate."
+      },
+      "collaborators": {
+        "suppliers": [
+          "Luxury food and beverage purveyors for fine dining restaurants -- currently aligned with traditional luxury positioning",
+          "High-end linen, amenity, and furnishing suppliers consistent with the opulent aesthetic",
+          "Potential new suppliers for experiential amenities: local artists, wellness practitioners, sustainability consultants"
+        ],
+        "channels": [
+          "Direct booking via website and loyalty program -- the preferred channel for traditional luxury guests",
+          "Luxury travel advisors and consortia -- key referral channels for affluent travelers",
+          "Online travel agencies (OTAs) for visibility, but at the cost of margin and brand control",
+          "Social media and influencer marketing -- critical for reaching younger experiential travelers, but underdeveloped at Opal"
+        ]
+      },
+      "climate": {
+        "trends": [
+          "Shift from 'conspicuous consumption' to 'conscious consumption' among affluent consumers -- experiences matter more than displays of wealth",
+          "Wellness tourism is one of the fastest-growing travel segments, including fitness, mental health, and holistic well-being",
+          "Remote work enables 'work-from-anywhere' travel, making co-working and connectivity key hotel amenities for younger affluent travelers",
+          "Sustainability and local sourcing are becoming hygiene factors for luxury brands, not differentiators"
+        ],
+        "threats": [
+          "Zephyr and similar lifestyle brands are scaling, capturing the experiential segment before Opal can reposition",
+          "Traditional luxury customers are aging and their travel frequency will naturally decline",
+          "If Opal changes too aggressively, it risks alienating its core traditional customers without fully winning new ones -- the 'stuck in the middle' trap",
+          "Economic downturns hit luxury travel hard, and a split-segment strategy may not survive a recession"
+        ]
+      },
+      "analysis_prompt": "Opal Resorts faces a classic 'innovator's dilemma' in luxury hospitality: its core customers want one thing, but market growth is in something else. Using the 5C framework, evaluate whether Opal should (a) maintain its traditional positioning and accept gradual decline, (b) fully reposition toward experiential luxury, or (c) pursue a differentiated targeting strategy serving both segments. What operational and brand implications does each strategy carry?"
+    },
+    "analysis_questions": {
+      "company": {
+        "question": "Opal's existing strengths (prime locations, service excellence, 12 properties) are real assets, but they are currently configured for traditional luxury. In STP terms, what is the key company question Opal must answer?",
+        "options": [
+          "Should Opal sell all its properties and exit hospitality?",
+          "Can Opal leverage its existing assets (locations, service capability) to credibly serve the experiential luxury segment, or does the traditional brand identity prevent credibility with this new segment?",
+          "Should Opal lower prices to compete with budget hotels?",
+          "Are Opal's properties too old to be repaired?"
+        ],
+        "correct_idx": 1,
+        "rationale": "The core strategic question for repositioning is whether existing capabilities can be repurposed for a new segment or whether the brand's legacy identity is a liability. Prime locations are transferable; service excellence is transferable (but with a different style); the 'opulent' brand reputation may not be. This is a capabilities-to-segment-fit analysis that is central to STP thinking."
+      },
+      "competitors": {
+        "question": "Zephyr Stays achieves higher RevPAR than Opal despite (or because of) offering a very different luxury experience. Which competitive dynamic does this most clearly illustrate?",
+        "options": [
+          "Higher RevPAR always means a better business",
+          "A new entrant can outperform an incumbent by serving a different customer need (experiential vs. traditional luxury) rather than competing on the incumbent's terms -- this is a classic niche entry strategy where the entrant changes the basis of competition",
+          "Zephyr's success means Opal's business model is obsolete and can never recover",
+          "RevPAR is an irrelevant metric for luxury hotels"
+        ],
+        "correct_idx": 1,
+        "rationale": "Zephyr is not beating Opal at 'traditional luxury' -- it is playing a different game (experiential luxury) that happens to attract higher-spending guests in the current market. This is a classic disruptive pattern: the entrant changes the dimensions of competition rather than competing on the incumbent's established dimensions. Opal can respond, but must accept that the basis of competition has shifted."
+      },
+      "customers": {
+        "question": "Traditional Luxury seekers and Experiential Luxury seekers are both 'affluent travelers,' yet they want fundamentally different hotel experiences. Which concept best explains why identical demographics (wealthy) produce different hotel preferences?",
+        "options": [
+          "All wealthy people want exactly the same things",
+          "Psychographic segmentation: demographics (age, income) are surface-level; the deeper driver of preference is values, lifestyle, and what the consumer considers 'luxury' -- which differs between those who value status/tradition and those who value authenticity/experience",
+          "Younger wealthy travelers are simply poor decision-makers",
+          "Age is the only variable that matters in travel preferences"
+        ],
+        "correct_idx": 1,
+        "rationale": "This scenario is a textbook illustration of why psychographic segmentation matters. Two consumers with identical incomes but different value systems (status/tradition vs. authenticity/novelty) will make different purchase decisions. Demographics alone would group them together and lead to a failed one-size-fits-all product. Psychographics reveal the actual preference drivers."
+      },
+      "collaborators": {
+        "question": "If Opal adds a wellness and local-culture program to serve experiential travelers, which new supplier/collaborator relationships would be most essential to make this credible (rather than superficial)?",
+        "options": [
+          "Maintaining only existing suppliers and just calling the existing spa a 'wellness program'",
+          "Partnerships with respected local artists, chefs, wellness practitioners, and sustainability consultants who can co-create authentic, property-specific experiences -- not a chain-wide, cookie-cutter program",
+          "Partnering with fast-food chains for in-room dining",
+          "Eliminating all food and beverage services"
+        ],
+        "correct_idx": 1,
+        "rationale": "Experiential luxury travelers can detect inauthenticity. A surface-level 'wellness program' that is just a renamed spa will not satisfy this segment. Credibility requires deep partnerships with local creators and practitioners who bring genuine expertise and local cultural connection. This transforms suppliers from transactional vendors into co-creators of the guest experience -- a fundamentally different collaboration model."
+      },
+      "climate": {
+        "question": "The shift from conspicuous consumption to conscious consumption among affluent consumers directly threatens Opal's traditional positioning. What is the strategic implication of this climate trend?",
+        "options": [
+          "Opal should ignore trends and hope customers return to traditional preferences",
+          "Opal's core value proposition (opulence, formality, status display) is becoming misaligned with evolving consumer values. The brand must evolve toward experiential elements or face a shrinking addressable market as the trend continues",
+          "All consumers will abandon luxury travel entirely",
+          "Only budget hotels will survive the trend"
+        ],
+        "correct_idx": 1,
+        "rationale": "When a secular trend shifts consumer values away from your brand's core appeal, doing nothing is a strategic choice with negative consequences. The conscious consumption trend is well-documented and likely durable (supported by generational value shifts, not a fad). Opal must acknowledge this trend and plan a strategic response -- either evolve the brand, or accept a gradually shrinking share of a declining segment."
+      }
+    }
+  },
+  {
+    "scenario_id": 8,
+    "title": "Specialty Coffee Roaster Wholesale Dilemma",
+    "difficulty_tier": 2,
+    "scenario_type": "Channel Segmentation",
+    "background": "HighGround Roasters is a premium specialty coffee roaster selling to three channels: (1) direct-to-consumer online subscriptions (DTC), (2) local cafes and restaurants (B2B wholesale), and (3) corporate offices (office coffee service). Each channel has different expectations for pricing, packaging, delivery frequency, and support.",
+    "trigger_event": "Supply chain costs have risen 25% due to green coffee price spikes. HighGround cannot raise prices across all channels equally without losing business. The COO wants to 'fire the least profitable segment based on channel economics.'",
+    "steps": {
+      "segmentation": {
+        "question": "Which segmentation base is most relevant to evaluate profitability per channel before making a divestment decision?",
+        "options": [
+          "Demographic (age of business owner)",
+          "Behavioral (purchase frequency, order size, service calls)",
+          "Psychographic (coffee connoisseurship level)"
+        ],
+        "correct_idx": 1,
+        "rubric_rationale": "Behavioral segmentation at the channel level (order size, frequency, support costs) directly ties to profitability. This is a classic 'customer profitability analysis' using behavioral metrics like service cost per order."
+      },
+      "targeting": {
+        "question": "After cost analysis, HighGround finds: DTC (high margin, low service cost), Cafes (medium margin, high service cost due to training and equipment maintenance), Corporate (low margin, medium service cost). Which channel should HighGround de-emphasize or drop?",
+        "options": [
+          "DTC \u2013 too small volume",
+          "Cafes \u2013 high service cost erodes profitability despite prestige",
+          "Corporate \u2013 low margin, minimal brand visibility"
+        ],
+        "correct_idx": 2,
+        "rubric_rationale": "Corporate is the correct choice to drop because it offers low margin and little brand-building benefit. Cafes, despite higher service cost, provide brand visibility and prestige; DTC is profitable and grows direct relationships."
+      },
+      "positioning": {
+        "question": "For the retained channels (DTC and Cafes), HighGround needs a repositioning that justifies the price increase. Which value proposition works best for both, without confusing each channel's distinct needs?",
+        "options": [
+          "HighGround: Now cheaper than mass-market coffee.",
+          "HighGround: Uncompromising quality from crop to cup \u2013 now with enhanced roaster support for cafes and fresh subscriptions for home.",
+          "HighGround: Only for true coffee snobs \u2013 not for offices."
+        ],
+        "correct_idx": 1,
+        "rubric_rationale": "Option 1 is false (price increase). Option 3 alienates potential growth. Option 2 acknowledges both channels (support for cafes, subscriptions for home) and justifies premium pricing with a quality story."
+      }
+    },
+    "concept_check": {
+      "question": "In channel segmentation, 'customer profitability analysis' often reveals that the most profitable customers are NOT the ones with the highest revenue, but those with:",
+      "options": [
+        "Lowest service cost relative to margin",
+        "The largest order sizes",
+        "The longest relationship tenure",
+        "The most frequent complaints"
+      ],
+      "correct_idx": 0,
+      "rationale": "Profitability = revenue minus fully loaded costs (shipping, sales calls, technical support, returns). High-revenue customers with high service costs can be less profitable than smaller but low-touch accounts."
+    },
+    "situation_analysis": {
+      "company": {
+        "summary": "HighGround Roasters is a premium specialty coffee roaster selling to three distinct channels: direct-to-consumer online subscriptions (DTC), wholesale to local cafes and restaurants (B2B), and corporate office coffee service. A 25% increase in green coffee costs is pressuring margins across all channels, forcing a difficult prioritization decision. HighGround cannot raise prices equally across all channels without losing business.",
+        "strengths": [
+          "Premium product quality -- specialty coffee commands higher margins than commodity coffee",
+          "Diversified channel strategy reduces dependence on any single revenue stream",
+          "DTC subscription model provides recurring revenue and direct customer relationships",
+          "Cafe partnerships provide brand visibility and prestige in the specialty coffee community"
+        ],
+        "weaknesses": [
+          "Rising input costs (green coffee +25%) are squeezing margins, and the company has limited pricing power in certain channels",
+          "Corporate office channel generates low margin and minimal brand-building benefit -- effectively a distraction",
+          "High service costs in the cafe channel (training, equipment maintenance) erode profitability",
+          "Limited resources to serve all three channels well simultaneously"
+        ]
+      },
+      "competitors": {
+        "summary": "The specialty coffee roasting market has competitors across channels. National specialty roasters compete for DTC subscriptions and cafe accounts. Commodity coffee providers dominate the corporate office channel on price. The competitive intensity varies dramatically by channel.",
+        "direct": [
+          "National specialty roasters -- established brands with broader distribution and marketing budgets; compete for premium DTC and cafe accounts",
+          "Regional/local specialty roasters -- similar scale to HighGround; compete on local relationships and freshness; direct competitors for cafe wholesale"
+        ],
+        "indirect": [
+          "Commodity coffee providers -- dominate corporate office channel on price; not competitors on quality, but set the reference price for office coffee",
+          "Cafes that roast their own coffee in-house -- vertical integration eliminates the wholesale supplier entirely",
+          "Grocery store premium coffee -- competes for the at-home DTC customer who might otherwise subscribe"
+        ]
+      },
+      "customers": {
+        "summary": "HighGround's three channels represent three different customer types with different needs, price sensitivities, and lifetime values. DTC subscribers are high-margin, low-service-cost, and build direct brand relationships. Cafe wholesale customers provide prestige and visibility but demand training, equipment support, and preferential pricing -- high service costs. Corporate offices are price-driven, low-margin, and contribute little brand equity.",
+        "segments_observed": [
+          "DTC subscribers -- individuals ordering premium coffee for home; high margin per bag; low service cost; digitally engaged; potential for subscription-based recurring revenue",
+          "Cafe/restaurant wholesale -- professional buyers; need consistency, training, equipment maintenance, and branded collateral; medium margin but high service cost; provide brand visibility and credibility in the specialty community",
+          "Corporate office service -- facilities managers purchasing coffee as an employee perk; price-sensitive; low margin; minimal brand-building value (coffee consumed in break rooms, not attributed to HighGround)"
+        ],
+        "key_insight": "Channel profitability analysis often reveals counter-intuitive findings: the channel with the highest prestige (cafes) may not be the most profitable, and the channel with the highest revenue may not be the most valuable. HighGround must evaluate channels on margin after fully loaded service costs, not just top-line revenue or prestige."
+      },
+      "collaborators": {
+        "suppliers": [
+          "Green coffee importers and direct-trade farm relationships -- the source of the 25% cost increase; supplier diversification could mitigate future shocks",
+          "Packaging suppliers -- DTC requires attractive, branded packaging that cafes do not need (bulk bags)",
+          "Equipment partners for cafe channel -- espresso machine maintenance, grinder calibration, water filtration"
+        ],
+        "channels": [
+          "DTC e-commerce platform -- website subscriptions, digital marketing, shipping logistics; highest margin channel",
+          "Wholesale distribution to cafes and restaurants -- requires account management, barista training, equipment service; relationship-intensive",
+          "Corporate office delivery -- likely a different logistical model (larger, less frequent deliveries); low-touch service"
+        ]
+      },
+      "climate": {
+        "trends": [
+          "Growing consumer preference for premium, ethically sourced coffee consumed at home (accelerated during and after the pandemic)",
+          "DTC subscription models are proliferating across CPG categories, normalizing recurring coffee delivery",
+          "Climate change is increasing green coffee price volatility and threatening growing regions, making cost management a long-term concern",
+          "Office coffee consumption is structurally declining due to remote/hybrid work trends"
+        ],
+        "threats": [
+          "Continued green coffee price increases could make the entire business model unsustainable without significant price increases",
+          "Large roasters acquiring specialty brands and leveraging distribution scale to pressure independents",
+          "Cafes consolidating or closing reduces the wholesale addressable market",
+          "DTC customer acquisition costs rising as digital advertising becomes more expensive"
+        ]
+      },
+      "analysis_prompt": "HighGround must evaluate whether to 'fire' a channel (corporate office) or restructure service levels. Using the 5C framework, perform a channel profitability analysis: compare the three channels on margin after service costs, strategic value (brand building, future growth potential), and alignment with market trends. Which channel is the weakest link?"
+    },
+    "analysis_questions": {
+      "company": {
+        "question": "HighGround's 25% increase in green coffee costs is squeezing margins across all three channels. Which company action is most consistent with a strategic (not just cost-cutting) response?",
+        "options": [
+          "Cut coffee quality across all channels to reduce costs",
+          "Use the cost pressure as a catalyst for strategic channel prioritization: identify which channels can sustain price increases (because they value quality) and which cannot (because they're price-driven), then allocate capacity and marketing resources accordingly",
+          "Immediately exit the coffee business entirely",
+          "Raise prices equally across all channels and hope for the best"
+        ],
+        "correct_idx": 1,
+        "rationale": "Cost pressure is often the forcing function for strategic discipline. Rather than spreading the pain evenly (which may lose business in all channels), a strategic response evaluates each channel's ability to absorb price increases based on their price sensitivity and loyalty. This turns a cost crisis into a strategic portfolio decision -- a hallmark of advanced marketing strategy."
+      },
+      "competitors": {
+        "question": "Commodity coffee providers dominate the corporate office channel on price. What does this competitive reality imply for HighGround's participation in this channel?",
+        "options": [
+          "HighGround should invest more in the corporate channel to beat commodity providers",
+          "The corporate office channel is a price-driven market where HighGround's premium quality is not valued and cannot be monetized -- a structural mismatch between the company's value proposition and the channel's buying criteria",
+          "Commodity providers will eventually exit the office market",
+          "HighGround should acquire a commodity coffee brand to compete on price"
+        ],
+        "correct_idx": 1,
+        "rationale": "When a channel's primary buying criterion (price) is misaligned with a company's core value proposition (premium quality), participation in that channel is value-destroying. The company either loses margin to compete on price, or loses bids because it won't compromise on quality. Recognizing this structural mismatch is a key channel management skill."
+      },
+      "customers": {
+        "question": "DTC, Cafe, and Corporate are three customer types with different channel economics. Which customer-level metric is most critical for HighGround to compare across channels when deciding which to prioritize?",
+        "options": [
+          "Total revenue generated by each channel",
+          "Profit margin after fully loaded service costs (including training, equipment maintenance, shipping, account management) -- revealing which customers are actually profitable, not just high-revenue",
+          "Number of customers in each channel",
+          "How long each customer has been with HighGround"
+        ],
+        "correct_idx": 1,
+        "rationale": "Customer profitability analysis is a foundational marketing analytics tool. High-revenue customers with high service costs can be less profitable than moderate-revenue customers with low service costs. DTC subscribers have low service costs (self-serve ordering, automated fulfillment) while cafe customers require barista training, equipment maintenance, and frequent sales visits. Fully loaded margin tells the real profitability story."
+      },
+      "collaborators": {
+        "question": "The cafe channel requires significant collaboration (barista training, equipment maintenance, branded materials). How should HighGround evaluate whether this investment is worthwhile?",
+        "options": [
+          "The investment is always worthwhile because cafes are prestigious",
+          "Compare the fully loaded cost of cafe support against the channel's profit contribution AND strategic value (brand visibility, credibility with consumers who discover HighGround at cafes). If the strategic value plus profit justifies the investment, keep the channel -- but possibly at a reduced service level",
+          "Immediately stop all cafe support to save money",
+          "Only serve cafes that promise to buy the most coffee"
+        ],
+        "correct_idx": 1,
+        "rationale": "Channel management requires evaluating both financial return (profit after service costs) and strategic return (brand building, customer acquisition, credibility). Cafes may be worth serving even at lower profitability if they serve as a discovery channel for DTC subscriptions -- the 'try at a cafe, subscribe at home' path. This is a more sophisticated analysis than simple profit comparison."
+      },
+      "climate": {
+        "question": "The structural decline in office coffee consumption due to remote work most directly affects which channel decision?",
+        "options": [
+          "It has no effect on any channel",
+          "The corporate office channel faces a negative demand trend (fewer people in offices = less coffee consumed), which compounds the channel's already weak profitability and strategic value -- strengthening the case for exiting this channel and reallocating resources to growing channels (DTC, cafe)",
+          "The DTC channel will also decline because remote workers don't drink coffee",
+          "The cafe channel will close all locations"
+        ],
+        "correct_idx": 1,
+        "rationale": "Climate/trend analysis isn't just about identifying trends -- it's about evaluating how different trends affect different parts of the business differently. Remote work is a headwind for office coffee (fewer offices consuming) but a tailwind for DTC (more people brewing premium coffee at home). This asymmetric impact should influence resource allocation across channels."
+      }
+    }
+  },
+  {
+    "scenario_id": 9,
+    "title": "Electric Scooter Share Expansion",
+    "difficulty_tier": 2,
+    "scenario_type": "Occasion-Based Segmentation",
+    "background": "ZipScoot operates e-scooter share in a warm-weather city of 800,000. They have 2,000 scooters. Ridership is highly variable: high on weekends and evenings, low on weekday mornings. The company is profitable but wants to grow utilization during off-peak hours without diluting peak-hour revenue.",
+    "trigger_event": "City council has offered ZipScoot an exclusive permit to expand into three new neighborhoods, but only if ZipScoot presents a data-driven STP plan showing how they will serve 'distinct mobility occasions' rather than just general transportation.",
+    "steps": {
+      "segmentation": {
+        "question": "Which segmentation approach is most directly suited to identifying distinct usage occasions that could be targeted with specific pricing, messaging, or fleet placement?",
+        "options": [
+          "Demographic (age, gender, income of riders)",
+          "Occasion-based (commuting, late-night social, daytime errands, tourism)",
+          "Psychographic (environmental values only)"
+        ],
+        "correct_idx": 1,
+        "rubric_rationale": "Occasion-based segmentation is correct because it groups trips by context (time, purpose, location). This directly informs operational tactics like dynamic pricing, designated parking zones, or promotional campaigns for specific hours."
+      },
+      "targeting": {
+        "question": "ZipScoot's data reveals four occasion segments. Which one represents the most underutilized opportunity for weekday morning hours (6\u201310 AM)?",
+        "options": [
+          "Bar-hoppers (10 PM\u20132 AM, high revenue but high vandalism)",
+          "First-mile/last-mile commuters to train station (7\u20139 AM, short trips, predictable)",
+          "Tourists (weekends, long rides, high revenue per trip but seasonal)"
+        ],
+        "correct_idx": 1,
+        "rubric_rationale": "First-mile/last-mile commuters are the best target for weekday mornings because they fill the exact off-peak gap, have predictable demand, and can be captured with subscription passes or partnerships with transit authorities."
+      },
+      "positioning": {
+        "question": "To attract the commuter segment, ZipScoot must compete with walking, buses, and bikes. Which positioning statement best addresses commuters' key needs (reliability, speed, seamless connection to transit)?",
+        "options": [
+          "ZipScoot: The party starts here.",
+          "ZipScoot: Skip the walk, catch the train \u2013 electric speed, transit-ready.",
+          "ZipScoot: Cheaper than a bus pass."
+        ],
+        "correct_idx": 1,
+        "rubric_rationale": "Option 1 targets nightlife, not commuters. Option 3 invites price comparison with subsidized transit. Option 2 directly addresses the first-mile/last-mile pain point and emphasizes reliability ('catch the train')."
+      }
+    },
+    "concept_check": {
+      "question": "Occasion-based segmentation is particularly powerful for services with:",
+      "options": [
+        "High fixed costs and fluctuating demand patterns",
+        "Only one type of customer",
+        "No seasonal variation",
+        "Commodity pricing"
+      ],
+      "correct_idx": 0,
+      "rationale": "When fixed costs are high (e.g., fleet of scooters), filling off-peak demand occasions increases asset utilization and profitability. Occasion segmentation enables targeted yield management."
+    },
+    "situation_analysis": {
+      "company": {
+        "summary": "ZipScoot operates 2,000 e-scooters in a warm-weather city of 800,000. It is profitable but has highly variable ridership -- high on weekends and evenings, low on weekday mornings. The company wants sustainable growth and has an exclusive permit opportunity to expand into three new neighborhoods, contingent on presenting a data-driven STP plan organized around distinct mobility occasions.",
+        "strengths": [
+          "Profitable operations in the current market with 2,000 deployed scooters",
+          "Exclusive permit negotiation position creates a potential competitive moat in the city",
+          "Data-rich operations -- every trip generates location, time, duration, and route data that can fuel occasion-based analysis",
+          "Asset-light relative to traditional transportation (no drivers, scalable fleet)"
+        ],
+        "weaknesses": [
+          "Highly uneven utilization -- idle fleet during weekday mornings represents lost revenue and asset underperformance",
+          "Dependence on weather (ridership drops in rain/cold) creates revenue volatility",
+          "Vandalism, theft, and scooter damage increase operating costs and reduce fleet availability",
+          "Single-city operations create geographic concentration risk"
+        ]
+      },
+      "competitors": {
+        "summary": "ZipScoot competes not just with other scooter companies but with all modes of short-distance urban transportation. Walking costs nothing. Buses are subsidized. Bikes (personal and share) offer exercise and familiarity. Ride-sharing services offer weather protection and passenger capacity. Each mode is preferred for different trip occasions.",
+        "direct": [
+          "Other e-scooter share companies -- similar business model; compete on scooter availability, pricing, and app experience",
+          "Bike-share services (city-operated or private) -- compete for similar short urban trips; advantage in exercise/health positioning"
+        ],
+        "indirect": [
+          "Public transit (bus, light rail) -- heavily subsidized, lower cost; preferred for longer trips or when weather is poor",
+          "Ride-sharing services -- superior comfort, weather protection, and passenger/cargo capacity; more expensive but preferred for certain occasions (nights out, with groups, carrying items)",
+          "Personal vehicles (cars, personal bikes, walking) -- the default option; scooter share must displace these habits"
+        ]
+      },
+      "customers": {
+        "summary": "Occasion-based analysis reveals that the same person uses ZipScoot differently depending on context: commuting to the train station on weekday mornings, bar-hopping on weekend nights, running daytime errands, or sightseeing as a tourist. Each occasion has different trip characteristics, price sensitivity, and competition. ZipScoot currently captures weekend/evening occasions well but misses weekday morning commuting.",
+        "segments_observed": [
+          "First-mile/last-mile commuters -- weekday mornings (7-9 AM); need to connect to transit stations; short, predictable trips; high frequency if captured; currently underserved by ZipScoot",
+          "Nightlife/social riders -- weekend evenings (10 PM-2 AM); recreational trips; high revenue per trip but higher vandalism and safety risk",
+          "Daytime errand runners -- mid-day trips for shopping, appointments, visits; moderate frequency and revenue",
+          "Tourists -- weekends and holidays; long, meandering rides; high revenue per trip but seasonal and unpredictable"
+        ],
+        "key_insight": "The commuter occasion represents ZipScoot's biggest growth opportunity. It fills the exact low-utilization period (weekday mornings), offers high frequency (commuters ride daily), and can be captured through targeted products (subscription passes, designated parking at transit stations). This is a classic capacity utilization play."
+      },
+      "collaborators": {
+        "suppliers": [
+          "Scooter manufacturers -- fleet quality, durability, and battery life depend on these relationships",
+          "Charging and maintenance contractors -- the 'gig economy' workers who collect, charge, and redistribute scooters nightly",
+          "Technology partners for the mobile app, IoT connectivity, and fleet management software"
+        ],
+        "channels": [
+          "Mobile app -- the sole booking and payment channel; user experience (finding, unlocking, paying) is the entire customer interface",
+          "Physical scooter presence on streets -- the scooters themselves are both the product and a marketing channel (branded vehicles are moving billboards)",
+          "No physical storefront or customer service center -- entirely digital and on-street"
+        ]
+      },
+      "climate": {
+        "trends": [
+          "Cities increasingly prioritizing 'micro-mobility' in transportation planning, building bike/scooter lanes and reducing car infrastructure",
+          "Public transit agencies seeking first-mile/last-mile partners to increase ridership -- creating formal partnership opportunities",
+          "Growing consumer acceptance of shared mobility and 'transportation as a service' rather than vehicle ownership",
+          "Electrification push benefiting e-scooters as a zero-emission transport mode"
+        ],
+        "threats": [
+          "Regulatory risk: cities could cap scooter fleets, ban sidewalk riding, or revoke permits for safety or clutter complaints",
+          "Vandalism and fleet damage eroding asset life and profitability",
+          "Seasonality and weather dependency limiting year-round utilization and revenue predictability",
+          "Competition from improved public transit (more frequent buses, expanded light rail) reducing the need for scooter connections"
+        ]
+      },
+      "analysis_prompt": "ZipScoot's city council requires a data-driven STP plan organized around 'distinct mobility occasions.' Using the 5C framework, identify which under-served occasion represents the best growth opportunity. What specific product, pricing, and fleet placement tactics would most effectively capture that occasion?"
+    },
+    "analysis_questions": {
+      "company": {
+        "question": "ZipScoot has 2,000 scooters that sit idle during weekday mornings. In STP and operations terms, what does this capacity underutilization most directly suggest?",
+        "options": [
+          "ZipScoot should remove scooters from service during mornings to save costs",
+          "There is an under-served usage occasion (weekday morning commuting) with untapped demand that could improve fleet utilization and revenue per scooter -- a classic yield management opportunity",
+          "Idle scooters mean the business is failing and should close",
+          "Morning is inherently a bad time for scooter use and nothing can change that"
+        ],
+        "correct_idx": 1,
+        "rationale": "High fixed-cost businesses (like scooter fleets) benefit enormously from improving asset utilization. An idle scooter still depreciates and incurs storage/maintenance cost but generates zero revenue. Identifying an under-served time-of-day occasion and targeting it is the operational equivalent of airlines filling empty seats or hotels filling weekday rooms -- yield management applied to micromobility."
+      },
+      "competitors": {
+        "question": "For the first-mile/last-mile commuter occasion, ZipScoot competes against walking (free), buses (subsidized), and personal bikes. Which customer need can ZipScoot uniquely serve better than these alternatives?",
+        "options": [
+          "ZipScoot is always the cheapest option",
+          "Speed and predictability: scooters are faster than walking, more direct than buses (no fixed routes or schedules), and don't require personal bike storage at both ends. For a commuter worried about missing their train, a scooter provides a reliable, fast connection with minimal wait time",
+          "ZipScoot provides the most exercise of any option",
+          "Scooters are never a good commuting option"
+        ],
+        "correct_idx": 1,
+        "rationale": "Each transportation mode has a unique value proposition for different trip types. For the specific 'get to the train on time' occasion, scooters offer an optimal combination of speed, convenience (no schedule, no parking), and predictability that walking (too slow), buses (fixed schedule, indirect routes), and personal bikes (storage at both ends) cannot match. The competitive analysis is mode-specific, not just company-specific."
+      },
+      "customers": {
+        "question": "The same person might use ZipScoot for commuting in the morning and bar-hopping at night. Why is occasion-based segmentation more actionable for ZipScoot than segmenting by user demographics?",
+        "options": [
+          "Demographics never change and are always more useful",
+          "Occasion-based segmentation captures the context of use -- where, when, and why a trip happens -- which directly informs pricing (commuter subscription vs. surge pricing), fleet placement (scooters at transit stations at 7 AM vs. entertainment districts at 10 PM), and marketing (different messages for different trip purposes)",
+          "Occasion-based segmentation requires less data analysis",
+          "ZipScoot shouldn't segment at all; all trips are the same"
+        ],
+        "correct_idx": 1,
+        "rationale": "The power of occasion-based segmentation is that it translates directly into operational tactics. 'Tourists take long rides on weekends' leads to placing scooters near hotels and landmarks on Saturday. 'Commuters ride 7-9 AM to transit stations' leads to offering a commuter monthly pass and ensuring scooter availability near residential areas in the morning. Demographics (e.g., '25-34 year-old males') don't tell you where and when to place scooters."
+      },
+      "collaborators": {
+        "question": "To capture the first-mile/last-mile commuter segment, which partner relationship would provide the greatest strategic leverage?",
+        "options": [
+          "Partnership with nightclubs to promote late-night scooter use",
+          "Partnership with the city transit authority to create designated scooter parking zones at train/bus stations, integrate scooter rental into the transit payment app, and potentially offer bundled transit+scooter monthly passes -- making ZipScoot an official part of the city's transportation infrastructure",
+          "Partnership with car dealerships to sell scooters",
+          "Partnership with airlines for tourist arrivals"
+        ],
+        "correct_idx": 1,
+        "rationale": "Transit agency partnerships create a structural competitive advantage: designated parking at stations ensures scooter availability where demand is concentrated, integration into the transit app reduces friction (one account, one payment), and official endorsement builds trust and legitimacy with commuters. This partnership model is difficult for competitors to replicate once established."
+      },
+      "climate": {
+        "question": "Cities are increasingly prioritizing micro-mobility infrastructure (bike lanes, scooter parking zones) in transportation planning. How should this climate trend influence ZipScoot's targeting and positioning strategy?",
+        "options": [
+          "ZipScoot should ignore city planning trends because they change too slowly",
+          "ZipScoot should position itself as a partner in achieving the city's transportation goals (reducing car trips, improving transit access) rather than just a private mobility provider. This aligns with the permit-granting authority's objectives and makes ZipScoot's growth a civic win, not just a commercial one",
+          "Infrastructure investment means scooters will become obsolete",
+          "ZipScoot should oppose all bike lanes because they compete with scooters"
+        ],
+        "correct_idx": 1,
+        "rationale": "Aligning a company's positioning with the macro goals of its regulatory stakeholders (in this case, the city council) is a sophisticated strategic move. If ZipScoot frames its commuter expansion as helping the city meet its sustainability and transit-access goals, the permit process becomes a partnership rather than a negotiation. This is a classic example of turning regulatory climate into competitive advantage."
+      }
+    }
+  },
+  {
+    "scenario_id": 10,
+    "title": "Freemium Productivity App Monetization",
+    "difficulty_tier": 2,
+    "scenario_type": "Behavioral Segmentation for Pricing",
+    "background": "Agilify is a freemium task management app with 2 million monthly active users. 95% use the free tier (limited projects, basic integrations). 5% pay $10/month for premium (unlimited projects, advanced reporting, team features). User growth is strong, but conversion from free to paid is only 3% annually, below industry benchmark of 8%.",
+    "trigger_event": "User behavior analysis reveals four distinct clusters among free users: 'Casual Listers' (5 tasks/day, no collaboration), 'Power Organizers' (20+ tasks/day, many tags and due dates), 'Team Collaborators' (heavy sharing, comments), and 'Dormant Users' (inactive). Premium adoption is highest among Power Organizers (8%) but lowest among Team Collaborators (1%), even though Team Collaborators have the highest engagement metrics.",
+    "steps": {
+      "segmentation": {
+        "question": "Which segmentation variable best explains why Team Collaborators don't convert to premium, despite high engagement?",
+        "options": [
+          "Demographic (student vs professional)",
+          "Behavioral (feature usage patterns \u2013 specifically, which free features they use vs which premium features they would need)",
+          "Geographic (country of origin)"
+        ],
+        "correct_idx": 1,
+        "rubric_rationale": "Behavioral segmentation at the feature-usage level reveals a gap: Team Collaborators may need collaboration features that are only available in premium, but perhaps pricing or team purchasing friction blocks conversion. This is more diagnostic than demographics."
+      },
+      "targeting": {
+        "question": "Agilify can only launch one targeted intervention due to engineering limits. Which segment should they target first to maximize conversion lift?",
+        "options": [
+          "Casual Listers (very large segment but low willingness to pay)",
+          "Power Organizers (already converting at 8%, may be near ceiling)",
+          "Team Collaborators (high engagement, near-zero conversion \u2013 high potential if friction removed)"
+        ],
+        "correct_idx": 2,
+        "rubric_rationale": "Team Collaborators offer the largest untapped conversion potential because they are actively using the product but not paying. The friction (e.g., needing team billing or certain premium collaboration features) can be specifically addressed. This is the classic 'low-hanging fruit' of behavior-based targeting."
+      },
+      "positioning": {
+        "question": "For the Team Collaborator segment, which repositioning of the premium tier's value proposition would most likely increase conversion?",
+        "options": [
+          "Agilify Premium: Unlimited projects for your personal life.",
+          "Agilify Premium: Turn your team's chaos into collaboration \u2013 shared boards, comments, and role-based access.",
+          "Agilify Premium: Now 20% off for students."
+        ],
+        "correct_idx": 1,
+        "rubric_rationale": "Option 2 directly addresses the collaboration pain point. Option 1 targets personal use (not team collaborators). Option 3 is a discount to a different segment (students). The language 'shared boards, comments, role-based access' maps to observed behaviors."
+      }
+    },
+    "concept_check": {
+      "question": "In freemium models, behavioral segmentation based on feature usage often reveals that the highest-engagement free users may NOT convert because:",
+      "options": [
+        "They are too poor to pay",
+        "The premium features they need are missing or priced inappropriately",
+        "They hate the brand",
+        "They only use mobile"
+      ],
+      "correct_idx": 1,
+      "rationale": "High-engagement free users have high value but may face a 'product gap' \u2013 the premium tier offers features they don't need, or the features they do need are not in premium. This is a classic STP-driven pricing opportunity."
+    },
+    "situation_analysis": {
+      "company": {
+        "summary": "Agilify is a freemium task management app with 2 million monthly active users. The conversion rate from free to paid ($10/month) is only 3%, well below the 8% industry benchmark. User behavior analysis reveals four distinct free-user clusters with dramatically different engagement and conversion patterns, suggesting a segmentation-driven pricing opportunity.",
+        "strengths": [
+          "Large user base (2 million MAU) provides rich behavioral data for segmentation and feature analysis",
+          "Freemium model creates a wide funnel for user acquisition at near-zero marginal cost",
+          "Five years of user data enables cohort analysis and behavioral pattern detection",
+          "Existing premium tier ($10/month) has proven monetization model, even if conversion is below benchmark"
+        ],
+        "weaknesses": [
+          "3% annual conversion rate vs. 8% benchmark is a significant monetization gap, indicating poor free-to-paid value proposition alignment",
+          "Premium tier may not offer the features that high-engagement non-paying users actually need",
+          "Engineering resources are limited -- can only pursue one monetization initiative at a time",
+          "Free tier may be too generous, removing the incentive to upgrade for some user types"
+        ]
+      },
+      "competitors": {
+        "summary": "The productivity/task management market is crowded. Incumbents range from simple to-do apps to comprehensive work management platforms. Agilify sits in the middle: more powerful than simple list apps but less capable than enterprise platforms. Its freemium model competes with both free basic tools and paid comprehensive ones.",
+        "direct": [
+          "Simple to-do apps -- popular task manager with freemium model; strong brand; simpler than Agilify but with loyal following",
+          "Similar freemium task management apps -- competitive feature set at similar price points",
+          "Basic free task managers -- free, integrated with major productivity ecosystems; competes on being 'good enough' and zero cost"
+        ],
+        "indirect": [
+          "Enterprise work platforms -- work management platforms that include task management; positioned for teams and enterprises rather than individuals; higher price points",
+          "Flexible workspace tools -- flexible workspace that can function as a task manager; appeals to power users who want customization",
+          "Paper and pen / built-in phone notes -- the 'do nothing' alternative for simple listers"
+        ]
+      },
+      "customers": {
+        "summary": "Agilify's free users are not one homogeneous group. Casual Listers use the app lightly and have low willingness to pay. Power Organizers use advanced features heavily and convert at 8% -- near benchmark. Team Collaborators have the highest engagement (heavy sharing, comments) but convert at only 1%, suggesting the premium tier doesn't address their needs. Dormant Users are effectively lost.",
+        "segments_observed": [
+          "Casual Listers -- ~5 tasks/day; no collaboration; low engagement; low willingness to pay; large segment but minimal monetization potential",
+          "Power Organizers -- 20+ tasks/day; heavy use of tags, due dates, projects; convert at 8% (near benchmark); already the best-performing segment but may be near ceiling",
+          "Team Collaborators -- heavy sharing and comments; highest engagement metrics overall; but convert at only 1% -- a massive gap indicating that the premium tier does not offer what they need or that team purchasing friction blocks conversion",
+          "Dormant Users -- inactive; not worth targeting"
+        ],
+        "key_insight": "The Team Collaborators present the most intriguing opportunity: high engagement signals value, but near-zero conversion signals a product-pricing gap. They may need team-tier features (shared boards, role-based access) that aren't in the current $10/month individual premium tier, or they may face organizational purchasing friction (need team billing, manager approval). Fixing this gap could unlock significant conversion uplift."
+      },
+      "collaborators": {
+        "suppliers": [
+          "Cloud infrastructure providers for hosting -- costs scale with user activity and data storage",
+          "Third-party API integrations (calendar, email, Slack) that enhance the platform's utility and stickiness",
+          "App store platforms -- gatekeepers for mobile distribution and subscription billing"
+        ],
+        "channels": [
+          "Mobile app stores (iOS, Android) -- primary acquisition channel; subject to platform fees (15-30% of subscription revenue)",
+          "Web app -- desktop access; may have lower platform fees but requires separate payment processing",
+          "Word-of-mouth and viral sharing -- Team Collaborators sharing tasks with colleagues is a powerful organic acquisition channel if harnessed",
+          "No enterprise sales team to convert team users to team accounts"
+        ]
+      },
+      "climate": {
+        "trends": [
+          "Freemium-as-a-model is maturing; best practices are converging on behavior-based conversion triggers rather than time-based trials",
+          "Remote/hybrid work increases demand for digital collaboration tools, expanding the addressable market for team features",
+          "Consumers increasingly expect personalized pricing and feature tiers that match their usage patterns",
+          "Rise of product-led growth (PLG) as a go-to-market strategy, where the product itself drives acquisition and conversion"
+        ],
+        "threats": [
+          "Platform fees (major app store providers taking 30% cut) take a significant share of subscription revenue",
+          "Incumbent platforms bundling task management for free within their productivity suites",
+          "Subscription fatigue -- consumers increasingly resistant to adding new monthly subscriptions, raising the bar for conversion",
+          "AI-based task management tools may change user expectations and competitive dynamics"
+        ]
+      },
+      "analysis_prompt": "Agilify's freemium conversion problem is a classic STP challenge: different free users need different things, but there is only one premium tier. Using the 5C framework, evaluate which of the four behavioral segments offers the highest potential conversion uplift. What specific changes to the premium tier (pricing, features, packaging) would be needed to unlock that segment?"
+    },
+    "analysis_questions": {
+      "company": {
+        "question": "Agilify's 3% conversion rate vs. an 8% industry benchmark most likely indicates which company-level problem?",
+        "options": [
+          "The product is simply not good enough for anyone to pay for",
+          "The current premium tier's feature set and pricing do not align with the needs of the highest-engagement free users (especially Team Collaborators), who want different features than what the premium tier offers",
+          "3% conversion is actually excellent and there is no problem",
+          "The free tier should be eliminated entirely"
+        ],
+        "correct_idx": 1,
+        "rationale": "When high-engagement users don't convert, the problem is not that they don't value the product -- they clearly do (heavy usage). The problem is that the premium tier doesn't offer the specific features they would pay for. The 1% conversion rate among the highest-engagement segment (Team Collaborators) is particularly diagnostic: they want collaboration features, but the premium tier is designed for individual power users."
+      },
+      "competitors": {
+        "question": "Agilify faces competition from simple free tools at the low end and enterprise platforms at the high end. What competitive position should Agilify target?",
+        "options": [
+          "Try to be the cheapest option by offering everything for free",
+          "Occupy the 'team-ready but accessible' middle: more collaboration features than simple personal tools, less complexity and cost than enterprise platforms -- specifically targeting small teams that need shared task management without IT department involvement",
+          "Copy enterprise platforms' exact feature set and pricing",
+          "Exit task management and build a different product"
+        ],
+        "correct_idx": 1,
+        "rationale": "The competitive landscape has a gap between free simple tools (good for individuals) and expensive complex platforms (designed for enterprise procurement). A 'prosumer team' tier -- collaboration features at a team-friendly price ($30-50/month for a team, not per-seat enterprise pricing) -- could occupy this gap and capture Team Collaborators who are currently underserved by both ends of the market."
+      },
+      "customers": {
+        "question": "Team Collaborators have the highest engagement but the lowest conversion (1%). Which hypothesis best explains this 'engagement-conversion gap'?",
+        "options": [
+          "Team Collaborators are simply cheap and will never pay for anything",
+          "Team Collaborators' primary need is collaboration (shared boards, comments, role-based permissions), but the current premium tier is designed for individual power users (unlimited projects, advanced reporting). The product-pricing mismatch means they have no reason to upgrade -- they can't buy what they need even if they want to",
+          "Team Collaborators are engaged but unhappy with the product",
+          "The app is broken for team features"
+        ],
+        "correct_idx": 1,
+        "rationale": "This is the classic 'product gap' in freemium models: the free tier serves a segment well enough to engage them, but the premium tier doesn't offer the specific incremental value that would trigger conversion. Team Collaborators need team-oriented features; the premium tier offers individual-oriented features. They don't convert because the upgrade doesn't solve their problem."
+      },
+      "collaborators": {
+        "question": "If Agilify targets Team Collaborators with a new team premium tier, which collaborator/channel consideration is most important for the monetization model?",
+        "options": [
+          "Channel partners are irrelevant for SaaS products",
+          "Team billing and purchasing: individual app-store subscriptions (the current model) don't work for teams -- Agilify needs a web-based team billing system with a single invoice, admin controls, and seat management, bypassing app-store platform fees for team accounts",
+          "Agilify should only sell through retail stores",
+          "Agilify needs a hardware partner to sell bundled devices"
+        ],
+        "correct_idx": 1,
+        "rationale": "Monetizing teams requires fundamentally different pricing and billing infrastructure than monetizing individuals. App stores are designed for individual subscriptions. Team accounts need centralized billing (one person pays for 5 seats), admin controls (who can add members), and possibly a sales-assisted motion. This channel architecture change is a prerequisite for serving the Team Collaborator segment."
+      },
+      "climate": {
+        "question": "The rise of remote/hybrid work and product-led growth (PLG) as a go-to-market strategy most directly supports which of Agilify's strategic options?",
+        "options": [
+          "These trends are irrelevant to a task management app",
+          "Remote work increases demand for digital collaboration tools, and PLG means the product itself (shared tasks, team invites) can drive acquisition. A team-focused tier targets a growing market with a scalable, low-cost acquisition model -- the product's collaboration features become the primary growth engine",
+          "Remote work means nobody uses task management anymore",
+          "PLG means Agilify should stop offering a free tier"
+        ],
+        "correct_idx": 1,
+        "rationale": "PLG is a go-to-market strategy where the product experience drives acquisition and conversion. When Team Collaborators share tasks with colleagues, those colleagues become users -- viral, zero-cost acquisition. Remote work amplifies this effect because teams need digital coordination. This creates a virtuous cycle: more teams lead to more sharing leads to more users leads to more teams. The climate trend makes team targeting more viable than individual targeting."
+      }
+    }
+  }
+]
