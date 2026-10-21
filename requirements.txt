@@ -1,2 +1,1 @@
-streamlit~=1.36
-streamlit-js-eval~=0.1.7
+streamlit==1.66.0

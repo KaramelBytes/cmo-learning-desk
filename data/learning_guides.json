@@ -1,0 +1,110 @@
+{
+  "1": {
+    "content_version": 2,
+    "objective": "Distinguish customer demographics from usage occasions and choose a target that fits existing capabilities.",
+    "transfer_prompt": "What would you reconsider if reliable Wi-Fi became too expensive to provide?",
+    "transfer_discussion": "Recheck the fit between the remote-worker promise and the caf\u00e9\u2019s capabilities. Would you repair the capability, adjust the promise, or choose another segment?",
+    "worked_example": "Evidence: morning traffic fell after a competitor entered with faster service. Interpretation: some visits depend on convenience. Implication: compare what those customers need with what Brew & Bean can credibly deliver. Your task is to decide which needs should guide the strategy.",
+    "option_feedback": {
+      "segmentation": [
+        "Age and income describe customers, but do not explain why they visit. Compare the needs of commuters and people staying to work.",
+        "Usage occasions reveal distinct needs: speed for commuters, space and Wi-Fi for remote workers.",
+        "Location helps assess reach, but zip codes alone do not explain the different benefits customers seek."
+      ],
+      "targeting": [
+        "Commuters value speed. Look at the investment needed to serve them before committing to a head-to-head convenience strategy.",
+        "Remote workers value capabilities the caf\u00e9 already has. The choice connects customer needs with a credible service offer.",
+        "Socializers may fit the ambiance, but compare their weekend occasions with the objective of building a clearer ongoing customer focus."
+      ],
+      "positioning": [
+        "A speed promise requires capabilities the caf\u00e9 does not currently have. Recheck the evidence supporting the promise.",
+        "This promise connects the work-and-relax occasion with the caf\u00e9\u2019s seating and Wi-Fi capabilities.",
+        "A low-price promise needs cost advantages. The case evidence instead supports differentiation through experience."
+      ]
+    }
+  },
+  "2": {
+    "content_version": 2,
+    "objective": "Choose a reachable apparel segment whose needs fit a limited launch budget.",
+    "transfer_prompt": "What changes if your preferred acquisition channel doubles its prices?",
+    "transfer_discussion": "Reassess whether the target remains economically reachable. A large segment is not automatically an attractive launch market."
+  },
+  "3": {
+    "content_version": 2,
+    "objective": "Segment learners by the outcomes they seek rather than treating all users alike.",
+    "transfer_prompt": "What changes if employers, rather than learners, pay for most courses?",
+    "transfer_discussion": "Separate the buyer\u2019s success criteria from the learner\u2019s. Revisit benefits, buying influence, and the promise you can substantiate."
+  },
+  "4": {
+    "content_version": 2,
+    "objective": "Evaluate a focused target and explain the trade-offs of niche positioning.",
+    "transfer_prompt": "What changes if a national competitor introduces a similar organic range?",
+    "transfer_discussion": "Test whether the niche remains defensible through trust, distribution, or a more specific customer benefit."
+  },
+  "5": {
+    "content_version": 2,
+    "objective": "Use customer needs and competitive alternatives to refresh a service position.",
+    "transfer_prompt": "What changes if a ride-hailing service substantially lowers local fares?",
+    "transfer_discussion": "Compare the occasions where renting still solves a distinct problem. Avoid assuming every customer values the same benefit."
+  },
+  "6": {
+    "content_version": 2,
+    "objective": "Separate organizational segmentation from the needs of individual decision-makers.",
+    "transfer_prompt": "What changes if procurement gains veto power over the operational buyer?",
+    "transfer_discussion": "Revisit the buying group, purchase criteria, and proof needed. User value alone may not win organizational approval."
+  },
+  "7": {
+    "content_version": 2,
+    "objective": "Connect psychographic differences to a credible luxury service promise.",
+    "transfer_prompt": "What changes if demand shifts toward shorter business stays?",
+    "transfer_discussion": "Recheck needs and willingness to pay by occasion. Preserve only the elements of the promise supported by the new target."
+  },
+  "8": {
+    "content_version": 2,
+    "objective": "Evaluate channel-specific needs and the strategic costs of wholesale expansion.",
+    "transfer_prompt": "What changes if the largest wholesale partner demands exclusivity?",
+    "transfer_discussion": "Compare reach and revenue against dependency, margin, and brand control. Explain the constraint you would accept or reject."
+  },
+  "9": {
+    "content_version": 2,
+    "objective": "Use travel occasions and operating constraints to choose an expansion target.",
+    "transfer_prompt": "What changes if local rules limit operating hours?",
+    "transfer_discussion": "Reassess which occasions remain serviceable and whether the target can be reached within the new operating constraint."
+  },
+  "10": {
+    "content_version": 2,
+    "objective": "Connect usage behavior and willingness to pay to a focused monetization strategy.",
+    "transfer_prompt": "What changes if heavy users resist the proposed paid tier?",
+    "transfer_discussion": "Distinguish high usage from willingness to pay. Revisit the benefit being charged for and the evidence behind the pricing segment."
+  },
+  "11": {
+    "content_version": 2,
+    "objective": "Balance customer needs, delivery capacity, and the sustainability of a service target.",
+    "transfer_prompt": "What changes if clinician availability falls by a quarter?",
+    "transfer_discussion": "Reassess service intensity and capacity before promising more volume. State which need you would prioritize and why."
+  },
+  "12": {
+    "content_version": 2,
+    "objective": "Evaluate psychographic fit while accounting for cannibalization across an existing range.",
+    "transfer_prompt": "What changes if most early buyers switch from your existing premium model?",
+    "transfer_discussion": "Separate incremental demand from internal substitution. Revisit the role of the new offer and the benefit that makes it distinct."
+  },
+  "13": {
+    "content_version": 2,
+    "objective": "Assess targeting choices alongside fairness, explainability, and regulatory constraints.",
+    "transfer_prompt": "What changes if a profitable segment is defined by a proxy for a protected characteristic?",
+    "transfer_discussion": "Question the segmentation variable itself. Commercial appeal does not establish that a targeting rule is fair or acceptable."
+  },
+  "14": {
+    "content_version": 2,
+    "objective": "Distinguish the needs of multiple ecosystem participants and choose a coherent platform position.",
+    "transfer_prompt": "What changes if suppliers gain bargaining power over the platform?",
+    "transfer_discussion": "Revisit value for each side and the dependencies between them. A proposition that attracts buyers may still fail to retain suppliers."
+  },
+  "15": {
+    "content_version": 2,
+    "objective": "Weigh long-term customer value against switching costs and cannibalization.",
+    "transfer_prompt": "What changes if sustainable packaging increases costs more than expected?",
+    "transfer_discussion": "Reassess willingness to pay, retention, and substitution. State the assumptions you would test before applying the change broadly."
+  }
+}

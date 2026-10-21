@@ -1,135 +1,78 @@
-"""Tests for the data loading and progress migration logic.
-
-These tests exercise the pure-Python helpers in `data.py` and the localStorage
-helpers in `utils.persistence.py`. They do not require Streamlit to be
-running, but they do import from `streamlit` for the @st.cache_data decorator
-on `load_scenarios` (which is a no-op when the test calls the cached function
-outside of a Streamlit session).
-"""
+"""Privacy boundaries, content loading, and portable state validation."""
 import json
-import sys
+from copy import deepcopy
 from pathlib import Path
-from unittest.mock import patch
-
 import pytest
-
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT))
-
-
-# ---------------------------------------------------------------------------
-# load_progress / _migrate_progress / get_default_progress
-# ---------------------------------------------------------------------------
-
-def test_get_default_progress_has_all_keys():
-    from data import get_default_progress
-    default = get_default_progress()
-    for key in [
-        "completed_scenarios",
-        "mastered_scenarios",
-        "scenario_scores",
-        "last_attempt_answers",
-        "unlocked_tiers",
-        "total_points",
-        "total_score",
-    ]:
-        assert key in default, f"Missing default key: {key}"
+from data import load_scenarios
+from learning import default_progress, score_attempt, QUESTIONS, question
+from utils.persistence import make_payload, validate_payload
 
 
-def test_migrate_progress_drops_obsolete_keys(tmp_path):
-    from data import _migrate_progress
-    legacy = {
-        "completed_scenarios": [1],
-        "mastered_scenarios": [],
-        "scenario_scores": {"1": 60},
-        "flashcard_progress": {"last_card_id": "SC_01"},
-        "unlocked_tiers": [1],
-        "total_points": 60,
-        "total_score": {},
-    }
-    migrated = _migrate_progress(legacy)
-    assert "flashcard_progress" not in migrated, "flashcard_progress should be dropped"
-    assert migrated["completed_scenarios"] == [1]
+def sample_draft(scenario):
+    return {'id': 'attempt-1', 'scenario_id': scenario['scenario_id'], 'step': 10,
+            'answers': {k: question(scenario, k)['correct_idx'] for k in QUESTIONS},
+            'checked': {}, 'notes': {'company': {'evidence': 'Limited capital', 'implication': 'Focus'}},
+            'hints': ['company'], 'revealed': [], 'revised': ['company'],
+            'explanation': 'Customer needs fit capabilities.', 'transfer': 'Recheck the promise.'}
 
 
-def test_migrate_progress_adds_missing_keys():
-    from data import _migrate_progress
-    minimal = {"completed_scenarios": []}
-    migrated = _migrate_progress(minimal)
-    assert "mastered_scenarios" in migrated
-    assert "scenario_scores" in migrated
-    assert "last_attempt_answers" in migrated
-    assert "unlocked_tiers" in migrated
-    assert "total_points" in migrated
-    assert "total_score" in migrated
-
-
-def test_load_progress_returns_defaults_when_file_missing(tmp_path, monkeypatch):
-    from data import load_progress
-    monkeypatch.chdir(tmp_path)
-    (tmp_path / "data").mkdir()
-    progress = load_progress()
-    assert progress["completed_scenarios"] == []
-    assert progress["unlocked_tiers"] == [1]
-    assert progress["total_points"] == 0
-
-
-def test_load_progress_recovers_from_corrupt_file(tmp_path, monkeypatch):
-    from data import load_progress
-    monkeypatch.chdir(tmp_path)
-    data_dir = tmp_path / "data"
-    data_dir.mkdir()
-    (data_dir / "progress.json").write_text("{not valid json")
-    progress = load_progress()
-    assert progress["completed_scenarios"] == []
-    assert progress["unlocked_tiers"] == [1]
-
-
-def test_load_progress_migrates_legacy_flashcard_field(tmp_path, monkeypatch):
-    from data import load_progress
-    monkeypatch.chdir(tmp_path)
-    data_dir = tmp_path / "data"
-    data_dir.mkdir()
-    legacy = {
-        "completed_scenarios": [1, 2],
-        "mastered_scenarios": [1],
-        "scenario_scores": {"1": 80, "2": 60},
-        "unlocked_tiers": [1, 2],
-        "total_points": 140,
-        "total_score": {},
-        "flashcard_progress": {"last_card_id": "SC_05"},
-    }
-    (data_dir / "progress.json").write_text(json.dumps(legacy))
-    progress = load_progress()
-    assert "flashcard_progress" not in progress
-    assert progress["completed_scenarios"] == [1, 2]
-    assert progress["mastered_scenarios"] == [1]
-
-
-# ---------------------------------------------------------------------------
-# save_progress: atomic write
-# ---------------------------------------------------------------------------
-
-def test_save_progress_creates_file_atomically(tmp_path, monkeypatch):
-    from data import save_progress, get_default_progress, PROGRESS_PATH
-    monkeypatch.chdir(tmp_path)
-    (tmp_path / "data").mkdir()
-    payload = get_default_progress()
-    payload["completed_scenarios"] = [3, 4]
-    save_progress(payload)
-    assert PROGRESS_PATH.exists()
-    with open(PROGRESS_PATH) as f:
-        loaded = json.load(f)
-    assert loaded["completed_scenarios"] == [3, 4]
-
-
-# ---------------------------------------------------------------------------
-# load_scenarios: returns 15 scenarios across 3 tiers
-# ---------------------------------------------------------------------------
-
-def test_load_scenarios_returns_fifteen():
-    from data import load_scenarios
+def test_catalog_is_complete_and_has_learning_guides():
     scenarios = load_scenarios()
     assert len(scenarios) == 15
-    tiers = sorted({s["difficulty_tier"] for s in scenarios})
-    assert tiers == [1, 2, 3]
+    assert {s['difficulty_tier'] for s in scenarios} == {1, 2, 3}
+    assert all(s['objective'] and s['transfer_prompt'] and s['transfer_discussion'] for s in scenarios)
+
+
+def test_load_catalog_never_creates_progress_file(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    assert len(load_scenarios()) == 15
+    assert not list(tmp_path.iterdir())
+
+
+def test_backup_round_trip_recalculates_scores_and_preserves_support():
+    scenarios = load_scenarios()
+    draft = sample_draft(scenarios[0])
+    attempt = score_attempt(scenarios[0], draft)
+    progress = default_progress()
+    progress['attempts']['1'] = [attempt]
+    raw = make_payload(progress, draft)
+    raw['progress']['attempts']['1'][0]['points'] = -100
+    restored = validate_payload(json.dumps(raw), scenarios)
+    a = restored['progress']['attempts']['1'][0]
+    assert a['points'] == 100
+    assert a['supported']
+    assert a['revised'] == ['company']
+    assert restored['draft']['notes'] == draft['notes']
+
+
+@pytest.mark.parametrize('mutate', [
+    lambda p: p.update(version=999),
+    lambda p: p['draft']['answers'].update(company=-1),
+    lambda p: p['draft']['answers'].update(company=True),
+    lambda p: p['draft'].update(step=99),
+    lambda p: p['draft'].update(scenario_id=1000),
+    lambda p: p['draft'].update(explanation='x' * 4001),
+    lambda p: p['draft']['checked'].update(company=99),
+])
+def test_reject_malformed_backups(mutate):
+    scenarios = load_scenarios()
+    raw = make_payload(default_progress(), sample_draft(scenarios[0]))
+    mutate(raw)
+    with pytest.raises((ValueError, KeyError)):
+        validate_payload(raw, scenarios)
+
+
+def test_no_learner_files_or_analytics_in_app():
+    root = Path(__file__).resolve().parents[1]
+    sources = '\n'.join((root / name).read_text() for name in ('app.py', 'data.py', 'learning.py', 'ui_learning.py', 'utils/persistence.py'))
+    assert 'progress.json' not in sources
+    assert 'set_local_storage' not in sources
+    assert 'gatherUsageStats = false' in (root / '.streamlit/config.toml').read_text()
+
+
+def test_reject_backup_from_changed_case_content():
+    scenarios = load_scenarios()
+    d = sample_draft(scenarios[0])
+    d['content_version'] = 999
+    with pytest.raises(ValueError, match='content version'):
+        validate_payload(make_payload(default_progress(), d), scenarios)
